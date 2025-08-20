@@ -98,6 +98,33 @@ document.getElementById('status').style.display="block"
 
 
 
+const makeHide = (id) => {
+    document.getElementById(id).style.display = "none";
+}
+
+const show = (id) => {
+    document.getElementById(id).style.display = "block";
+}
+
+
+const getValueById = (id) => {
+    const element = document.getElementById(id).innerText;
+    const convertedValue = parseInt(element);
+    return convertedValue;
+
+}
+
+
+
+
+const handleDetails = async(petId) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`);
+    const data = await response.json();
+    console.log(data.petData)
+    my_modal_1.showModal()
+
+}
+
 
 
 
