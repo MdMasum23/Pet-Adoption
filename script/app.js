@@ -72,7 +72,35 @@ document.getElementById('status').style.display="block"
         petsContainer.appendChild(div)
     })
 
- 
+    const allSelectButton = document.getElementsByClassName("select");
+    for (const button of allSelectButton) {
+        button.addEventListener("click", (event) => {
+            const title = event.target.parentNode.parentNode.childNodes[1].innerText;
+            console.log(title)
+
+            const listContainer = document.getElementById('selcted-container');
+            const div = document.createElement("div");
+            div.classList.add("flex")
+            div.innerHTML = `
+            <li>${title}</li>
+            <button class="delete-btn btn ">Delete</button>
+            `;
+            listContainer.appendChild(div)
+            const prevCount = getValueById("count");
+            const sum = prevCount + 1;
+
+            document.getElementById('count').innerText = sum;
+            
+        })
+    }
+    
+}
+
+
+
+
+
+
 
 
 
