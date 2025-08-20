@@ -36,7 +36,51 @@ const loadPets = async (categoryName) => {
     }
 }
 
+const displayPets = (pets) => {
+    console.log(pets)
 
+if (pets.length<1) {
+    document.getElementById("petsContainer").style.display = "none";
+document.getElementById('status').style.display="block"
+}
+
+
+
+    pets.forEach((pet) => {
+     
+        const petsContainer = document.getElementById("petsContainer");
+        petsContainer.innerHTML = "";
+
+        const div = document.createElement("div");
+        div.classList.add("mt-5")
+        div.innerHTML = `
+        <div class="card bg-base-100 w-96 shadow-sm">
+  <figure>
+    <img
+      src=${pet.image} />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">${pet.breed}</h2>
+    <p>${pet.pet_details.slice(0,100)}</p>
+    <div class="card-actions justify-end">
+      <button class="btn select btn-primary">Seelct</button>
+      <button onclick="handleDetails('${pet.petId}')" class="btn  bg-red-500 details">Details</button>
+    </div>
+  </div>
+</div>
+        `;
+        petsContainer.appendChild(div)
+    })
+
+ 
+
+
+
+loadPets("cat")
+
+
+
+loadCategory()
 
 
 
