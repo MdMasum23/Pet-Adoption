@@ -23,6 +23,23 @@ const showCategory = (categories) => {
 }
 ``
 
+const loadPets = async (categoryName) => {
+    
+    document.getElementById('status').style.display = "none";
+    show("spiner")
+    document.getElementById("petsContainer").style.display = "block";
+    const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryName}`);
+    const data = await response.json();
+    if (data.data) {
+        displayPets(data.data);
+        makeHide("spiner")
+    }
+}
+
+
+
+
+
 
 
 
