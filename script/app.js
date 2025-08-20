@@ -8,15 +8,20 @@ const loadCategory = async () => {
 }
 
 
+const showCategory = (categories) => {
+    categories.forEach((element) => {
+        const categoryContainer = document.getElementById('category-container');
+        const div = document.createElement("div");
+        div.innerHTML = `
+        <button onclick="loadPets('${element.category}')" class="btn">${element.category} 
+        <img class="w-8" src=${element.category_icon} alt="" />
+        </button>
+        `
+        categoryContainer.appendChild(div)
 
-
-loadPets("cat")
-
-
-
-loadCategory()
-
-
+    })
+}
+``
 
 
 
